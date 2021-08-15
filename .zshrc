@@ -38,6 +38,7 @@ alias \
 	nu="nmtui" \
 	screenShot="maim -s ~/Pictures/$(date +%s).png" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+	gts="c /run/media/$(whoami)/HDD8T/Sync"
 
 c() {
       if [ -n "$1" ]; then
