@@ -1,7 +1,0 @@
-[user]
-	email = hthomas1215@gmail.com
-	name = HoldenThomas
-[credential]
-	helper = cache --timeout 30000
-[pull]
-	rebase = false
