@@ -31,7 +31,6 @@ alias \
 	v="nvim" \
 	sdn="shutdown now" \
 	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
-	gts="c /run/media/holden/HDD8T/Sync" \
 	pm="pulsemixer" \
 	bt="bluetoothctl" \
 	yt="youtube-dl -f mp4" \
