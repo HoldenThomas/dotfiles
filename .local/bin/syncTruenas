@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -rtgoD -vP --delete /run/media/holden/HDD8T/Sync/ /run/media/holden/Truenas/Storage/Sync/

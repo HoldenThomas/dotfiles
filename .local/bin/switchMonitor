@@ -1,0 +1,8 @@
+#!/bin/sh
+
+input="$(printf "TV\\nMonitors" | dmenu -i -p "Select which monitor: ")" || exit 1
+
+case $input in
+	"TV") xrandr --output HDMI-0 --auto --scale .35 --output DP-3 --off --output DP-4 --off ;;
+	"Monitors") xrandr --output DP-4 --auto --output DP-3 --auto --left-of DP-4 --output HDMI-0 --off ;;
+esac
