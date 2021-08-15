@@ -1,11 +1,10 @@
 #!/bin/sh
-session=${2:-i3}
+session=${2:-dwm}
 
 case $session in
     i3) exec i3;;
     dwm) picom -f &
 	dunst &
-	#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &
 	setrgb &
 	setbg &
 	dwmblocks &
