@@ -36,7 +36,8 @@ alias \
 	bt="bluetoothctl" \
 	yt="youtube-dl -f mp4" \
 	nu="nmtui" \
-	screenShot="maim -s ~/Pictures/$(date +%s).png"
+	screenShot="maim -s ~/Pictures/$(date +%s).png" \
+	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 c() {
       if [ -n "$1" ]; then
