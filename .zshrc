@@ -1,4 +1,4 @@
-# Enable colors and change prompt:
+# Enable colors and change prompt
 autoload -U colors && colors	# Load colors
 PS1="%{$fg[magenta]%}%~%{$reset_color%}>%b "
 
@@ -6,39 +6,54 @@ setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
-# History in cache directory:
+# History in cache directory
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE=~/.cache/zsh/.histfile
 
-# Alias
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# Use neovim for vim if present
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# sudo not required for some system commands
+for command in mount umount pacman su ; do
+	alias $command="sudo $command"
+done; unset command
+
+# Settings you always want
 alias \
-	ls="ls -hN --color=auto --group-directories-first" \
-	ll="ls -al" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ip="ip -color=auto" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	mkdir="mkdir -pv" \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ip="ip -color=auto"
+
+# Shortening some common commands
+alias \
+	ll="ls -al" \
 	C="cd" \
-	mount="sudo mount" \
-	umount="sudo umount" \
-	pacman="sudo pacman" \
 	p="pacman" \
 	g="git" \
-	v="nvim" \
+	v="vim" \
 	sdn="shutdown now" \
-	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
 	pm="pulsemixer" \
 	bt="bluetoothctl" \
+	nu="nmtui"
+
+# Some other nice commands
+alias \
+	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
 	yt="youtube-dl -f mp4" \
-	nu="nmtui" \
 	screenShot="maim -s ~/Pictures/$(date +%s).png" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' \
 	gts="c /run/media/$(whoami)/HDD8T/Sync"
 
+# A nice way to cd around the terminal
 c() {
       if [ -n "$1" ]; then
         cd "$1" || return 1
@@ -48,22 +63,39 @@ c() {
       ls -a
 }
 
-# Basic auto/tab complete:
+# Basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)
+_comp_options+=(globdots) # Include hidden files
 
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
 
-# Use vim keys in tab complete menu:
+# Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -75,12 +107,13 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
+
 bindkey -s '^o' 'lfcd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
 # Change ls colors for making ntfs mounted partitions readable
-LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=1;35:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:';
+LS_COLORS='ow=1;35:'
 export LS_COLORS
 
 # Load syntax highlighting; should be last.

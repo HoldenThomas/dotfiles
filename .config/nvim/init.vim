@@ -19,7 +19,7 @@ set ignorecase
 set smartcase
 
 let mapleader =","
-imap jk <Esc>
+"imap jk <Esc>
 
 " Perform dot commands over visual blocks:
 vnoremap . :normal .<CR>

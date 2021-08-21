@@ -6,6 +6,7 @@ setrgb &
 setbg &
 dwmblocks &
 sxhkd &
+remaps &
 while true; do
 	dwm
 done
