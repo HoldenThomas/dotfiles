@@ -1,0 +1,2 @@
+#!/bin/sh
+[ ! -z $(pacman -Qqe | grep liquidctl) ] && xrandr --output DisplayPort-1 --auto --set TearFree on --output DisplayPort-2 --auto --left-of DisplayPort-1 --set TearFree on --output HDMI-A-0 --off && setbg

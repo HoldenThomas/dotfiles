@@ -7,6 +7,7 @@ setbg &
 dwmblocks &
 sxhkd &
 remaps &
+setMonitor &
 while true; do
 	dwm
 done
