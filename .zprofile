@@ -5,6 +5,8 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="brave"
 
+export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
 fi=📃:\
