@@ -20,13 +20,13 @@ fi
 ### auth	optional	pam_gnome_keyring.so
 ### session 	optional 	pam_gnome_keyring.so	auto_start
 ### Edit /etc/pam.d/passwd
-### passwd 	optional 	pam_gnome_keyring.so
-### Open seahorse and add new password keyring with same password as user
+### password 	optional 	pam_gnome_keyring.so
+### Open seahorse and add new password keyring called Login with same password as user and make default
 ### Uncommit first two lines below
 ###########################################
-#eval $(gnome-keyring-daemon --start)
-#export SSH_AUTH_SOCK
-#nextcloud --background &
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+nextcloud --background &
 
 picom -f &
 dunst &
