@@ -48,7 +48,10 @@ alias \
 # Some other nice commands
 alias \
 	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
-	yt="youtube-dl -f mp4" \
+	yt="youtube-dl -o '%(title)s.%(ext)s'" \
+	yt-fmp4="yt -f mp4" \
+	yt-rmp4="yt --recode-video mp4" \
+	yt-mmp4="yt --merge-output-format mp4" \
 	screenShot="maim -s ~/Pictures/$(date +%s).png" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' \
 	gts="c /run/media/$(whoami)/HDD8T/Sync"
