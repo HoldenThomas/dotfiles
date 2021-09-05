@@ -1,6 +1,6 @@
 #!/bin/sh
 
-input="$(printf "TV\\nMonitors" | dmenu -i -p "Select which monitor: ")" || exit 1
+[ $# -eq 1 ] && input="$1" || input="$(printf "TV\\nMonitors" | dmenu -i -p "Select which monitor: ")" || exit 1
 
 
 case $input in

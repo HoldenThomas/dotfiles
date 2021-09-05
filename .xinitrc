@@ -24,9 +24,9 @@ fi
 ### Open seahorse and add new password keyring called Login with same password as user and make default
 ### Uncommit first two lines below
 ###########################################
-#eval $(gnome-keyring-daemon --start)
-#export SSH_AUTH_SOCK
-#nextcloud --background &
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+nextcloud --background &
 
 picom -f &
 dunst &
@@ -35,7 +35,7 @@ setbg &
 dwmblocks &
 sxhkd &
 remaps &
-setMonitor &
+displayset Monitors &
 while true; do
 	dwm
 done

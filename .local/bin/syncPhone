@@ -8,11 +8,11 @@ case $i in
 		mkdir ~/phone
 		aft-mtp-mount ~/phone ;;
 	2)
-		rsync --verbose --progress --omit-dir-times --no-perms --recursive --inplace --size-only --delete --exclude=.thumbnails --exclude=iTunes --exclude="YouTube Music"/"10 Hours" --exclude="YouTube Music"/Videos /run/media/holden/HDD8T/Sync/Music/ ~/phone/android/Music/ ;;
+		rsync -vrPO --no-perms --inplace --size-only --delete --exclude=.thumbnails --exclude=iTunes --exclude="YouTube Music"/"10 Hours" --exclude="YouTube Music"/Videos /run/media/holden/HDD8T/Sync/Music/ ~/phone/android/Music/ ;;
 	3)
-		rsync --verbose --progress --omit-dir-times --no-perms --recursive --inplace --size-only --delete /run/media/holden/HDD8T/Sync/Videos/AMV/ ~/phone/android/Videos/AMV/ ;;
+		rsync -vrPO --no-perms --inplace --size-only --delete /run/media/holden/HDD8T/Sync/Videos/AMV/ ~/phone/android/Videos/AMV/ ;;
 	4)
-		rsync --verbose --progress --omit-dir-times --no-perms --recursive --inplace --size-only --delete --exclude="iPod Photo Cache" /run/media/holden/HDD8T/Sync/Pictures/"Itunes Pictures"/ ~/phone/android/Pictures/"Itunes Pictures"/ ;;
+		rsync -vrPO --no-perms --inplace --size-only --delete --exclude="iPod Photo Cache" /run/media/holden/HDD8T/Sync/Pictures/"Itunes Pictures"/ ~/phone/android/Pictures/"Itunes Pictures"/ ;;
 	5)
 		fusermount -u ~/phone
 		rm -Rf ~/phone
