@@ -35,7 +35,7 @@ setbg &
 dwmblocks &
 sxhkd &
 remaps &
-setMonitor &
+displayset Monitors &
 while true; do
 	dwm
 done

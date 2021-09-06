@@ -12,4 +12,4 @@ xmodmap -e 'keycode 135 = Super_R'
 # Turn off the caps lock if on since there is no longer a key for it.
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 # Increase mouse scrolling speed
-imwheel -b 45
+[ ! -z $(pacman -Qqe | grep liquidctl) ] && imwheel -b 45
