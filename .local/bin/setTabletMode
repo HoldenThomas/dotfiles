@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xinput float 12
+notify-send "Keyboard Disabled"

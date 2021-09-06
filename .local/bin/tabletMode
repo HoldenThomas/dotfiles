@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xinput reattach 12 3
+notify-send "Keyboard Enabled"
