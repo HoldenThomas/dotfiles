@@ -1,6 +1,5 @@
 #!/bin/sh
 
-input=""
 [ ! -z $(pacman -Qqe | grep liquidctl) ] && { [ $# -eq 1 ] && input="$1" || input="$(printf "TV\\nMonitors" | dmenu -i -p "Select which monitor: ")" || exit 1; }
 
 
