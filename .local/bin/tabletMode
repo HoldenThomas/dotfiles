@@ -1,4 +1,11 @@
 #!/bin/sh
+fconfig="$HOME/.local/share/.keyboard"
+id=12
 
-xinput reattach 12 3
-notify-send "Keyboard Enabled"
+keyfunc() {
+	[ ! -f $fconfig ] && echo "Creating config file" && echo "enabled" > $fconfig && var="enabled" || var=$(cat $fconfig)
+	[ $var = "disabled" ] && ( echo "enable" > $fconfig && xinput reattach 12 3 && notify-send "Keyboard Enabled" ) || ( echo "disabled" > $fconfig && xinput float 12 && notify-send "Keyboard Disabled" )
+
+}
+
+[ -z $(pacman -Qqe | grep liquidctl) ] && keyfunc
