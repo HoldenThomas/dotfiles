@@ -35,6 +35,6 @@ autocmd BufWritePre *.[ch] %s/\%$/\r/e
 " Source nvim config
 autocmd BufWritePost ~/.config/nvim/init.vim so %
 " Run xrdb whenever Xdefaults or Xresources are updated.
-autocmd BufWritePost ~/.Xresources !xrdb %
+autocmd BufWritePost ~/.config/x11/xresources !xrdb %
 " Recompile dwmblocks on config edit.
 autocmd BufWritePost ~/.local/src/dwmblocks/blocks.def.h !cd ~/.local/src/dwmblocks/; sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }
