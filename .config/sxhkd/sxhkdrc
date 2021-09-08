@@ -2,12 +2,12 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
 	pamixer -{t,d,i} 2; kill -44 $(pidof dwmblocks)
 XF86MonBrightness{Up,Down}
 	brightnessctl s {+10%,10%-}
-super + {w,e,p,m,grave,z}
-	{$BROWSER,pcmanfm,keepassxc,dmenumount,dmenuunicode,displayset}
+super + {Return,w,e,p,m,grave,z,s}
+	{$TERMINAL,$BROWSER,pcmanfm,keepassxc,dmenumount,dmenuunicode,displayset,dmenusync}
 super + shift + {l,m,z}
 	{slock,dmenuumount,displayselect}
-super + Return
-	$TERMINAL
+super + ctrl + m
+	dmenumountcifs
 super + a
 	$TERMINAL -e pulsemixer
 super + shift + a
