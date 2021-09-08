@@ -1,0 +1,11 @@
+#!/bin/sh
+
+srvip=$(printf "192.168.0.2\\n192.168.1.1" | dmenu -i -p "What is the nas ip:") || exit 1
+share=$(printf "" | dmenu -i -p "Enter share name:") || exit 1
+user=$(printf "" | dmenu -i -p "User:") || exit 1
+password=$(printf "" | dmenu -i -p "Password:") || exit 1
+mp=$(printf "/run/media" | dmenu -i -p "Enter mount point:") || exit 1
+
+[ ! -d "$mp" ] && (mkdir -p "$mp" || sudo -A mkdir -p "$mp")
+
+sudo mount -t cifs //$srvip/$share -o user=$user,password=$password,uid=$user,gid=$user $mp && notify-send "Nas mounted" || notify-send "Nas mount failed"
