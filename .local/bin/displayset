@@ -4,6 +4,6 @@
 
 
 case $input in
-	"TV") xrandr --output HDMI-A-0 --auto --scale .35 --set TearFree on --output DisplayPort-1 --off --output DisplayPort-2 --off && setbg ;;
-	"Monitors") xrandr --output DisplayPort-1 --auto --set TearFree on --output DisplayPort-2 --auto --left-of DisplayPort-1 --set TearFree on --output HDMI-A-0 --off && setbg ;;
+	"TV") xrandr --output HDMI-A-0 --primary --auto --scale .35 --set TearFree on --output DisplayPort-1 --off --output DisplayPort-2 --off && setbg ;;
+	"Monitors") xrandr --output DisplayPort-1 --primary --auto --set TearFree on --output DisplayPort-2 --auto --left-of DisplayPort-1 --set TearFree on --output HDMI-A-0 --off && setbg ;;
 esac

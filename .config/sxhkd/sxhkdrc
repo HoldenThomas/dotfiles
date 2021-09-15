@@ -3,9 +3,9 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
 XF86MonBrightness{Up,Down}
 	brightnessctl s {+10%,10%-}
 super + {Return,w,e,p,m,grave,z,s}
-	{$TERMINAL,$BROWSER,pcmanfm,keepassxc,dmenumount,dmenuunicode,displayset,dmenusync}
-super + shift + {l,m,z}
-	{slock,dmenuumount,displayselect}
+	{$TERMINAL,$BROWSER,pcmanfm,keepmenu,dmenumount,dmenuunicode,displayset,dmenusync}
+super + shift + {l,m,z,p}
+	{slock,dmenuumount,displayselect,keepassxc}
 super + ctrl + m
 	dmenumountcifs
 super + a
