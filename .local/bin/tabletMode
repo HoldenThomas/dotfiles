@@ -11,4 +11,4 @@ keyfunc() {
 
 }
 
-[ -z $(pacman -Qqe | grep liquidctl) ] && keyfunc
+keyfunc
