@@ -29,13 +29,15 @@ nextcloud --background &
 
 picom -f &
 dunst &
-setbg &
 dwmblocks &
 remaps &
 if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
 	setrgb &
 	displayset Monitors &
 	imwheel -b 45 &
+	ckb-next -b &
+else
+	setbg &
 fi
 while true; do
 	dwm
