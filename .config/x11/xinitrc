@@ -27,16 +27,16 @@ eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 nextcloud --background &
 
-if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
-	setrgb &
-	displayset Monitors &
-	imwheel -b 45 &
-	ckb-next -b &
-fi
 picom -f &
 dunst &
 dwmblocks &
 remaps &
+if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
+	displayset Monitors &
+	setrgb &
+	imwheel -b 45 &
+	ckb-next -b &
+fi
 setbg &
 while true; do dwm; done
 exec dwm
