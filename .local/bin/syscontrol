@@ -1,0 +1,8 @@
+#!/bin/sh
+
+input="$(printf "Shutdown\\nLock" | dmenu -p "Select option: ")" || exit 1
+
+case $input in
+	"Shutdown") shutdown now ;;
+	"Lock") slock ;;
+esac
