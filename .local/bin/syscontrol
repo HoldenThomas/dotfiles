@@ -1,8 +1,9 @@
 #!/bin/sh
 
-input="$(printf "Shutdown\\nLock" | dmenu -p "Select option: ")" || exit 1
+input="$(printf "Shutdown\\nReboot\\nLock" | dmenu -p "Select option: ")" || exit 1
 
 case $input in
 	"Shutdown") shutdown now ;;
+	"Reboot") reboot ;;
 	"Lock") slock ;;
 esac
