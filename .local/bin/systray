@@ -1,0 +1,3 @@
+#!/bin/sh
+
+! pidof -s stalonetray && stalonetray -bg "#111111"|| killall stalonetray
