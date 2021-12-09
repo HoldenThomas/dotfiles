@@ -19,14 +19,15 @@ cmd delete ${{
 }}
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+cmd touch $touch "$(echo $* | tr ' ' '\ ')"
 
 map m
 map md push :mkdir<space>
+map mf push :touch<space>
 
 map gb bottom
 map gs cd /run/media/holden/HDD8T/Sync
 map gv cd /run/media/holden/HDD8T/Sync/Videos
-map gp cd /run/media/holden/HDD8T/Sync/Stuff/9/7/Special
 
 map ov $setsid -f mpv -quiet "$f" >/dev/null 2>&1
 map oa $setsid -f $TERMINAL -e mpv "$f" >/dev/null 2>&1
