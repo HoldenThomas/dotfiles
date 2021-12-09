@@ -9,7 +9,6 @@ image/gif=sxivs.desktop;
 video/mp4=mpv.desktop
 video/quicktime=mpv.desktop
 video/x-matroska=mpv.desktop
-audio/mp3=mpvaudio.desktop
 audio/mpeg=mpvaudio.desktop
 inode/directory=pcmanfm.desktop
 x-scheme-handler/mailto=thunderbird.desktop;
