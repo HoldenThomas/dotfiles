@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Mail
-Exec=/usr/bin/thunderbird %u
+Exec=thunderbird %u

@@ -1,11 +1,15 @@
 [Default Applications]
-text/x-shellscript=text.desktop;
-text/plain=text.desktop;
-application/pdf=pdf.desktop;
-image/png=img.desktop;
-image/jpeg=img.desktop;
-image/gif=img.desktop;
-video/x-matroska=video.desktop
-inode/directory=file.desktop
-x-scheme-handler/mailto=mail.desktop;
-x-scheme-handler/discord-402572971681644545=discord-402572971681644545.desktop
+text/x-shellscript=nvim.desktop;
+text/plain=nvim.desktop;
+text/html=nvim.desktop;
+application/pdf=zathura.desktop;
+image/png=sxivs.desktop;
+image/jpeg=sxivs.desktop;
+image/gif=sxivs.desktop;
+video/mp4=mpv.desktop
+video/quicktime=mpv.desktop
+video/x-matroska=mpv.desktop
+audio/mp3=mpvaudio.desktop
+audio/mpeg=mpvaudio.desktop
+inode/directory=pcmanfm.desktop
+x-scheme-handler/mailto=thunderbird.desktop;

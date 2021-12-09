@@ -2,6 +2,6 @@
 while read file
 do
         case "$1" in
-        "w") setbg "$file" & ;;
+        "b") setbg "$file" & ;;
         esac
 done
