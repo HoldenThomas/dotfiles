@@ -2,6 +2,7 @@ set icons
 set period 1
 set drawbox
 set hidden
+set ifs "\n"
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
@@ -15,7 +16,7 @@ cmd delete ${{
 	printf "%s\n\t" "$fx"
 	printf "delete?[y/N]"
 	read ans
-	[ $ans = "y" ] && rm -rf -- "$fx"
+	[ $ans = "y" ] && rm -rf $fx
 }}
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
@@ -24,6 +25,8 @@ cmd touch $touch "$(echo $* | tr ' ' '\ ')"
 map m
 map md push :mkdir<space>
 map mf push :touch<space>
+map ma $7z a "$f"
+map mx $7z x "$f"
 
 map gb bottom
 map gs cd /run/media/holden/HDD8T/Sync
