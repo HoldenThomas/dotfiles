@@ -29,6 +29,10 @@ vnoremap . :normal .<CR>
 " Nerd tree
 map <leader>n :NERDTreeToggle<CR>
 
+" Indenting visual block doesn't go out of visual block
+vmap < <gv
+vmap > >gv
+
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePre * %s/\n\+\%$//e
@@ -41,11 +45,10 @@ autocmd BufWritePost ~/.config/x11/xresources !xrdb %
 " Recompile dwmblocks on config edit.
 autocmd BufWritePost ~/.local/src/dwmblocks/blocks.def.h !cd ~/.local/src/dwmblocks/; sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""COC Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-prettier', 'coc-html', 'coc-css']
+let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-prettier', 'coc-html', 'coc-css', 'coc-ccls']
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
