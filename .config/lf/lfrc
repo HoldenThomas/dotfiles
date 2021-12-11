@@ -35,7 +35,7 @@ map gv cd /run/media/holden/HDD8T/Sync/Videos
 map ov $setsid -f mpv -quiet "$f" >/dev/null 2>&1
 map oa $setsid -f $TERMINAL -e mpv "$f" >/dev/null 2>&1
 map op $setsid -f sxivs "$f" >/dev/null 2>&1
-map ob $$BROWSER "$f" >/dev/null 2>&1
+map ob $setsid -f $BROWSER "$f" >/dev/null 2>&1
 
 map B $vidir
 map <c-f> $lf -remote "send $id select '$(fzf)'"
