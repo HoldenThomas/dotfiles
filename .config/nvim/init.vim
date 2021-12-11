@@ -21,7 +21,6 @@ set ignorecase
 set smartcase
 
 let mapleader =","
-"imap jk <Esc>
 
 " Perform dot commands over visual blocks:
 vnoremap . :normal .<CR>
@@ -33,17 +32,21 @@ map <leader>n :NERDTreeToggle<CR>
 vmap < <gv
 vmap > >gv
 
-" Automatically deletes all trailing whitespace and newlines at end of file on save.
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\n\+\%$//e
-autocmd BufWritePre *.[ch] %s/\%$/\r/e
-
 " Source nvim config
 autocmd BufWritePost ~/.config/nvim/init.vim so %
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufWritePost ~/.config/x11/xresources !xrdb %
 " Recompile dwmblocks on config edit.
 autocmd BufWritePost ~/.local/src/dwmblocks/blocks.def.h !cd ~/.local/src/dwmblocks/; sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""Airline Plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.maxlinenr = ' '
+let g:airline_symbols.colnr = 'CN:'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""COC Plugin
