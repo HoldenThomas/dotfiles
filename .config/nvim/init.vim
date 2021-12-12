@@ -11,6 +11,7 @@ Plug 'preservim/nerdtree'
 Plug 'lilydjwg/colorizer'
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
 call plug#end()
 
 set mouse=a
@@ -51,7 +52,7 @@ let g:airline_symbols.colnr = 'CN:'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""COC Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-prettier', 'coc-html', 'coc-css', 'coc-ccls']
+let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-prettier', 'coc-html', 'coc-css', 'coc-ccls', 'coc-tsserver', 'coc-json']
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
