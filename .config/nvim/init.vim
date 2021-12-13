@@ -14,24 +14,55 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 call plug#end()
 
-set mouse=a
+
+
+
 set clipboard+=unnamedplus
 set number relativenumber
-set nohlsearch
+set mouse=a
 set ignorecase
 set smartcase
 
-let mapleader =","
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+set cursorcolumn
+set cursorline
+    
+
+
+let mapleader = " "
+
+nnoremap <A-v> :wincmd v<CR>
+nnoremap <A-s> :wincmd s<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+
+nnoremap <A-t> :tabnew<CR>
+nnoremap <A-p> :tabp<CR>
+nnoremap <A-n> :tabn<CR>
+
+nnoremap <leader>+ :vertical resize +5<CR>
+nnoremap <leader>- :vertical resize -5<CR>
+
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+
+nnoremap <leader>q :wq<CR>
+nnoremap <leader>Q :q!<CR>
+nnoremap <leader>w :w<CR>
 
 " Perform dot commands over visual blocks:
 vnoremap . :normal .<CR>
 
-" Nerd tree
-map <leader>n :NERDTreeToggle<CR>
-
 " Indenting visual block doesn't go out of visual block
 vmap < <gv
 vmap > >gv
+
+
 
 " Source nvim config
 autocmd BufWritePost ~/.config/nvim/init.vim so %
@@ -40,8 +71,17 @@ autocmd BufWritePost ~/.config/x11/xresources !xrdb %
 " Recompile dwmblocks on config edit.
 autocmd BufWritePost ~/.local/src/dwmblocks/blocks.def.h !cd ~/.local/src/dwmblocks/; sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }
 
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""Airline Plugin
+""""""""""""nerdtree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>n :NERDTreeToggle<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -49,8 +89,9 @@ endif
 let g:airline_symbols.maxlinenr = ' '
 let g:airline_symbols.colnr = 'CN:'
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""COC Plugin
+""""""""""""coc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-prettier', 'coc-html', 'coc-css', 'coc-ccls', 'coc-tsserver', 'coc-json']
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
