@@ -4,7 +4,6 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
-
 " PlugInstall,PlugUpdate,PlugClean
 call plug#begin('~/.config/nvim/plugged')
 Plug 'preservim/nerdtree'
@@ -22,48 +21,45 @@ set number relativenumber
 set mouse=a
 set ignorecase
 set smartcase
-
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-
-set cursorcolumn
 set cursorline
-    
+set cursorcolumn
+highlight CursorLine ctermbg=236 cterm=bold
+highlight Cursorcolumn ctermbg=236 cterm=bold
+set wildmode=longest,list,full
+set splitbelow splitright
+
 
 
 let mapleader = " "
-
 nnoremap <A-v> :wincmd v<CR>
 nnoremap <A-s> :wincmd s<CR>
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-
 nnoremap <A-t> :tabnew<CR>
+map <A-h> <C-w>h
+map <A-j> <C-w>j
+map <A-k> <C-w>k
+map <A-l> <C-w>l
 nnoremap <A-p> :tabp<CR>
 nnoremap <A-n> :tabn<CR>
-
 nnoremap <leader>+ :vertical resize +5<CR>
 nnoremap <leader>- :vertical resize -5<CR>
-
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>w :w<CR>
-
+nnoremap <leader>S :%s//g<Left><Left>
 " Perform dot commands over visual blocks:
 vnoremap . :normal .<CR>
-
 " Indenting visual block doesn't go out of visual block
 vmap < <gv
 vmap > >gv
 
 
 
+" Remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
 " Source nvim config
 autocmd BufWritePost ~/.config/nvim/init.vim so %
 " Run xrdb whenever Xdefaults or Xresources are updated.
