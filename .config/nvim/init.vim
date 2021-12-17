@@ -46,8 +46,8 @@ map <A-k> <C-w>k
 map <A-l> <C-w>l
 nnoremap <A-p> :tabp<CR>
 nnoremap <A-n> :tabn<CR>
-nnoremap <leader>+ :vertical resize +5<CR>
-nnoremap <leader>- :vertical resize -5<CR>
+nnoremap <A-+> :vertical resize +5<CR>
+nnoremap <A--> :vertical resize -5<CR>
 nnoremap <leader>q :wq<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>w :w<CR>
