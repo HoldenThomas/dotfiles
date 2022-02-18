@@ -33,6 +33,8 @@ highlight CursorLine ctermbg=236 cterm=bold
 highlight Cursorcolumn ctermbg=236 cterm=bold
 set wildmode=longest,list,full
 set splitbelow splitright
+set spelllang=en,cjk
+set spellsuggest=best,9
 
 
 
@@ -57,6 +59,9 @@ vnoremap . :normal .<CR>
 " Indenting visual block doesn't go out of visual block
 vmap < <gv
 vmap > >gv
+" Spell Checking
+nnoremap <silent> <F11> :set spell!<cr>
+inoremap <silent> <F11> <C-O>:set spell!<cr>
 
 
 
