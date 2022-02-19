@@ -54,6 +54,7 @@ alias \
 	yt-mmp4="yt --merge-output-format mp4" \
 	screenShot="maim -s ~/Pictures/$(date +%s).png" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' \
+	gtd="c /run/media/$(whoami)" \
 	gts="c /run/media/$(whoami)/HDD8T/Sync"
 
 # A nice way to cd around the terminal

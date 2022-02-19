@@ -21,6 +21,7 @@ cmd delete ${{
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 cmd touch $touch "$(echo $* | tr ' ' '\ ')"
+cmd whoami $whoami
 
 map m
 map md push :mkdir<space>
@@ -29,6 +30,7 @@ map ma $7z a "$f"
 map mx $7z x "$f"
 
 map gb bottom
+map gd cd /run/media/holden
 map gs cd /run/media/holden/HDD8T/Sync
 map gv cd /run/media/holden/HDD8T/Sync/Videos
 
