@@ -14,6 +14,29 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+session=${2:-dwm}
+case $session in
+  dwm)
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+    if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
+      displayset Monitors
+      setrgb &
+      imwheel -b 45 &
+      ckb-next -b &
+    fi
+    picom -f &
+    dunst &
+    dwmblocks &
+    remaps &
+    redshift -l 42.51:-73.61 &
+    setbg
+    nextcloud --background &
+    while true; do dwm; done
+    exec dwm;;
+    *) exec $1;;
+esac
+
 ###########################################
 ###### For Saving Application passwords such as nextcloud
 ### Edit /etc/pam.d/login
@@ -23,21 +46,3 @@ fi
 ### password 	optional 	pam_gnome_keyring.so
 ### Open seahorse and add new password keyring called Login with same password as user and make default
 ###########################################
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
-nextcloud --background &
-
-picom -f &
-dunst &
-dwmblocks &
-remaps &
-redshift -l 42.51:-73.61 &
-if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
-	displayset Monitors &
-	setrgb &
-	imwheel -b 45 &
-	ckb-next -b &
-fi
-setbg &
-while true; do dwm; done
-exec dwm
