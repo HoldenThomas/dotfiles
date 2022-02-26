@@ -98,5 +98,5 @@ ex=🎯:\
 *.java=♨:\
 "
 
-# start graphical enviornment
-[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
+# start startup script
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && loginScript
