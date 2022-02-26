@@ -30,6 +30,7 @@ case $session in
     dwmblocks &
     remaps &
     redshift -l 42.51:-73.61 &
+    sxhkd &
     setbg
     nextcloud --background &
     while true; do dwm; done
