@@ -1,5 +1,5 @@
 XF86Audio{Mute,LowerVolume,RaiseVolume}
-	pamixer -{t,d,i} 2; kill -44 $(pidof dwmblocks)
+	pamixer -{t,d,i} 2; kill -44 $(pidof dwmblocks); kill -44 $(pidof i3blocks)
 XF86MonBrightness{Up,Down}
 	brightnessctl s {+10%,10%-}
 

@@ -35,7 +35,24 @@ case $session in
     nextcloud --background &
     while true; do dwm; done
     exec dwm;;
-    *) exec $1;;
+  i3)
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+    if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
+      displayset Monitors
+      setrgb &
+      imwheel -b 45 &
+      ckb-next -b &
+    fi
+    picom -f &
+    dunst &
+    remaps &
+    redshift -l 42.51:-73.61 &
+    sxhkd &
+    setbg
+    nextcloud --background &
+    exec i3;;
+  *) exec $1;;
 esac
 
 ###########################################

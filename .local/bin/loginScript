@@ -2,11 +2,12 @@
 
 neofetch
 figlet Welcome $(whoami)
-echo "DWM(Enter/dwm) | Enter a command"
+echo "DWM(Enter/dwm) | i3 | Enter a command"
 read input
 
 case $input in
-  dwm|"") exec startx $XINITRC dwm;;
+  dwm|"") exec startx dwm;;
+  i3) exec startx i3;;
   *) $input;;
 
 esac
