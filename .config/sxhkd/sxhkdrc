@@ -3,7 +3,7 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
 XF86MonBrightness{Up,Down}
 	brightnessctl s {+10%,10%-}
 
-super + shift + l
+super + ctrl + l
   slock
 super + Escape
   syscontrol
