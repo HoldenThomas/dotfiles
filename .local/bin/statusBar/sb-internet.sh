@@ -1,5 +1,9 @@
 #!/bin/sh
 
+case $BLOCK_BUTTON in
+	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
+esac
+
 if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
 	wifiicon="$(awk '/^\s*w/ { print "📶", int($3 * 100 / 70) "% " }' /proc/net/wireless)"
 elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then

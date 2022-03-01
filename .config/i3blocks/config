@@ -1,9 +1,25 @@
 separator=true
 separator_block_width=15
 
+[forecast]
+command=sb-forecast.sh
+interval=10000
+
+[memory]
+command=sb-memory.sh
+interval=5
+
+[cpu]
+command=sb-cpu.sh
+interval=5
+
+[nettraf]
+command=sb-nettraf.sh
+interval=1
+
 [wifi]
 command=sb-internet.sh
-interval=10
+interval=5
 
 [battery]
 command=sb-battery.sh

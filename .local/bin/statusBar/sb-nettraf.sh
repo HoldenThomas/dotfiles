@@ -1,5 +1,9 @@
 #!/bin/sh
 
+case $BLOCK_BUTTON in
+	1) setsid -f "$TERMINAL" -e bmon ;;
+esac
+
 update() {
     sum=0
     for arg; do
@@ -15,4 +19,4 @@ update() {
 rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
 tx=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
 
-printf "%4sB %4sB\\n" $(numfmt --to=iec $rx) $(numfmt --to=iec $tx)
+printf "🔻%4sB 🔺%4sB\\n" $(numfmt --to=iec $rx) $(numfmt --to=iec $tx)

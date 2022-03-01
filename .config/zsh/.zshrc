@@ -55,7 +55,8 @@ alias \
   screenShot="maim -s ~/Pictures/'$(date '+%m-%d-%y %H-%M-%S').png'" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' \
 	gtd="c /run/media/$(whoami)" \
-	gts="c /run/media/$(whoami)/HDD8T/Sync"
+	gts="c /run/media/$(whoami)/HDD8T/Sync" \
+  weather="curl -sf wttr.in"
 
 # A nice way to cd around the terminal
 c() {
