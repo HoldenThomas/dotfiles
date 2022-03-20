@@ -18,9 +18,9 @@ if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
   imwheel -b 45 &
   ckb-next -b &
 fi
+[ "$1" = "dwm" ] && dwmblocks &
 picom -f &
 dunst &
-dwmblocks &
 remaps &
 redshift -l 42.51:-73.61 &
 sxhkd &
