@@ -2,7 +2,7 @@
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -99,4 +99,4 @@ ex=🎯:\
 "
 
 # start startup script
-#[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && loginscript.sh
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && loginscript.sh

@@ -18,6 +18,7 @@ session=${1:-dwm}
 case $session in
   dwm) while true; do dwm; done; exec dwm;;
   i3) exec i3;;
+  openbox) exec openbox-session;;
   kde) export DESKTOP_SESSION=plasma; exec startplasma-x11;;
   *) exec $1;;
 esac

@@ -15,9 +15,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
-
-
-
+""""""""""""""""""""""""""""""""
+"Settings
+""""""""""""""""""""""""""""""""
 set clipboard+=unnamedplus
 set number relativenumber
 set mouse=a
@@ -27,17 +27,14 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set cursorline
-set cursorcolumn
-highlight CursorLine ctermbg=236 cterm=bold
-highlight Cursorcolumn ctermbg=236 cterm=bold
 set wildmode=longest,list,full
 set splitbelow splitright
 set spelllang=en,cjk
 set spellsuggest=best,9
 
-
-
+""""""""""""""""""""""""""""""""
+"Key Mappings
+""""""""""""""""""""""""""""""""
 let mapleader = " "
 nnoremap <A-v> :wincmd v<CR>
 nnoremap <A-s> :wincmd s<CR>
@@ -63,8 +60,9 @@ vmap > >gv
 nnoremap <silent> <F11> :set spell!<cr>
 inoremap <silent> <F11> <C-O>:set spell!<cr>
 
-
-
+""""""""""""""""""""""""""""""""
+"File save actions
+""""""""""""""""""""""""""""""""
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 " Source nvim config
@@ -77,31 +75,29 @@ autocmd BufWritePost ~/.local/src/dwmblocks/blocks.def.h !cd ~/.local/src/dwmblo
 
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""telescope
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""
+"telescope
+""""""""""""""""""""""""""""""""
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""nerdtree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
+"nerdtree
+"""""""""""""""""""""""""""""""
 map <leader>n :NERDTreeToggle<CR>
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""vim-airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
+"vim-airline
+"""""""""""""""""""""""""""""""
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.maxlinenr = ' '
 let g:airline_symbols.colnr = 'CN:'
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""coc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""
+"coc
+"""""""""""""""""""""""""""""""
 let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-prettier', 'coc-html', 'coc-css', 'coc-ccls', 'coc-tsserver', 'coc-json']
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim

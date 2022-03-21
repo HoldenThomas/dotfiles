@@ -19,6 +19,7 @@ if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
   ckb-next -b &
 fi
 [ "$1" = "dwm" ] && dwmblocks &
+[ "$1" = "openbox" ] && tint2 &
 picom -f &
 dunst &
 remaps &

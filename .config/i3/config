@@ -124,20 +124,3 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-
-#############################
-# Mode
-#############################
-mode "$layout" {
-		bindsym F1 layout stacking, mode "default"
-		bindsym F2 layout tabbed, mode "default"
-		bindsym F3 layout toggled split, mode "default"
-		bindsym F4 restart, mode "default"
-		bindsym F5 reload, mode "default"
-
-		bindsym Return mode "default"
-		bindsym Escape mode "default"
-		bindsym $mod+z mode "default"
-}
-bindsym $mod+F1 mode "$layout"
-set $layout Stacking(F1), tabbed(F2), toggled split(F3), Restart i3(F4), Reload i3(F5)
