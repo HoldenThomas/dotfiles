@@ -1,0 +1,8 @@
+auto-reload yes
+
+bind-key j down
+bind-key k up
+bind-key h quit
+bind-key l open
+
+macro v set browser "setsid -f mpv -quiet >/dev/null 2>&1" ; open-in-browser ; set browser brave
