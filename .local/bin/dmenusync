@@ -1,6 +1,6 @@
 #!/bin/sh
 
-input="$(printf "Website\\nNAS\\nPhone" | dmenu -i -p "Select option: ")" || exit 1
+input="$(printf "Website\\nNAS\\nPhone\\nExpansion" | dmenu -i -p "Select option: ")" || exit 1
 
 case $input in
 	"Website")
@@ -25,4 +25,5 @@ case $input in
 				rsync -vrPO --no-perms --inplace --size-only --delete --exclude="iPod Photo Cache" /run/media/holden/HDD8T/Sync/Pictures/"Itunes Pictures"/ ~/phone/android/Pictures/"Itunes Pictures"/; read';;
 		esac
 		;;
+    "Expansion") $TERMINAL -e zsh -c 'echo "Syncing Expansion disc in 2 seconds"; sleep 2; rsync -avP --delete /run/media/holden/HDD8T/Sync/ /run/media/holden/Expansion/Sync/; read';;
 esac

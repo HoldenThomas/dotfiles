@@ -43,7 +43,8 @@ alias \
 	sdn="shutdown now" \
 	pm="pulsemixer" \
 	bt="bluetoothctl" \
-	nu="nmtui"
+	nu="nmtui" \
+  nb="newsboat"
 
 # Some other nice commands
 alias \
@@ -52,7 +53,7 @@ alias \
 	yt-fmp4="yt -f mp4" \
 	yt-rmp4="yt --recode-video mp4" \
 	yt-mmp4="yt --merge-output-format mp4" \
-  screenShot="maim -s ~/Pictures/'$(date '+%m-%d-%y %H-%M-%S').png'" \
+  screenshot="maim -s ~/Pictures/'$(date '+%m-%d-%y %H-%M-%S').png'" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' \
 	gtd="c /run/media/$(whoami)" \
 	gts="c /run/media/$(whoami)/HDD8T/Sync" \
