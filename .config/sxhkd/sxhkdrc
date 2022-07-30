@@ -2,6 +2,7 @@ XF86Audio{Mute,LowerVolume,RaiseVolume}
 	pamixer -{t,d,i} 2; kill -44 $(pidof dwmblocks); kill -44 $(pidof i3blocks)
 XF86MonBrightness{Up,Down}
 	brightnessctl s {+10%,10%-}
+
 super + Escape
   syscontrol.sh
 super + d
@@ -14,19 +15,16 @@ super + shift + w
   $BROWSER --incognito
 super + e
   pcmanfm
-super + shift + e
-  $TERMINAL -e lf
 super + x
-	keepmenu
-super + shift + x
-  keepassxc
+	keepassxc
 super + a
 	$TERMINAL -e pulsemixer
 super + shift + a
 	$TERMINAL -e nmtui
 super + z
-  displayset
+  displayset.sh
 super + s
-  dmenusync
+  dmenusync.sh
+
 super + F1
   dmenui3.sh
