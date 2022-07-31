@@ -13,7 +13,7 @@ eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
 if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
-  displayset Monitors
+  displayset.sh Monitors
   setrgb.sh &
   imwheel -b 45 &
   ckb-next -b &
