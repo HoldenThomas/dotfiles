@@ -3,6 +3,8 @@ set period 1
 set drawbox
 set hidden
 set ifs "\n"
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in

@@ -57,8 +57,9 @@ alias \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' \
 	gtd="c /run/media/$(whoami)" \
 	gts="c /run/media/$(whoami)/HDD8T/Sync" \
-  weather="curl -sf wttr.in"
-  cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M"
+  weather="curl -sf wttr.in" \
+  cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M" \
+  lf="lfub.sh"
 
 # A nice way to cd around the terminal
 c() {
