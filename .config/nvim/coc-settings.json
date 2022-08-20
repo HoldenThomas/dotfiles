@@ -19,7 +19,6 @@
   },
   "pairs.enableCharacters": ["{", "[", "{", "'", "\"", "`"],
   "coc.preferences.formatOnSaveFiletypes": [
-    "html",
     "css",
     "javascript",
     "typescript",
