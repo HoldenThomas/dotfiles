@@ -53,7 +53,6 @@ alias \
 	yt-fmp4="yt -f mp4" \
 	yt-rmp4="yt --recode-video mp4" \
 	yt-mmp4="yt --merge-output-format mp4" \
-  screenshot="maim -s ~/Pictures/'$(date '+%m-%d-%y %H-%M-%S').png'" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' \
 	gtd="c /run/media/$(whoami)" \
 	gts="c /run/media/$(whoami)/HDD8T/Sync" \
@@ -119,6 +118,8 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+
+eval $(sfdx autocomplete:script zsh)
 
 # Change ls colors for making ntfs mounted partitions readable
 LS_COLORS='ow=1;35:'
