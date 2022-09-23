@@ -7,14 +7,15 @@ endif
 
 " PlugInstall,PlugUpdate,PlugClean
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-source ~/.config/nvim/plugins/nerdtree.vim
-source ~/.config/nvim/plugins/colorizer.vim
-source ~/.config/nvim/plugins/airline.vim
-source ~/.config/nvim/plugins/coc.vim
-source ~/.config/nvim/plugins/snippets.vim
-source ~/.config/nvim/plugins/plenary.vim
-source ~/.config/nvim/plugins/telescope.vim
-source ~/.config/nvim/plugins/tokyonight.vim
+Plug 'preservim/nerdtree'
+Plug 'lilydjwg/colorizer'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
 
 """"""""""""""""""""""""""""""""
@@ -33,7 +34,6 @@ set wildmode=longest,list,full
 set splitbelow splitright
 set spelllang=en,cjk
 set spellsuggest=best,9
-colorscheme tokyonight
 
 """"""""""""""""""""""""""""""""
 "Key Mappings
@@ -74,3 +74,13 @@ autocmd BufWritePost ~/.config/nvim/init.vim so %
 autocmd BufWritePost ~/.config/x11/xresources !xrdb %
 " Recompile dwmblocks on config edit.
 autocmd BufWritePost ~/.local/src/dwmblocks/blocks.def.h !cd ~/.local/src/dwmblocks/; sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }
+
+
+""""""""""""""""""""""""""""""""
+" Plugin Configs
+""""""""""""""""""""""""""""""""
+source ~/.config/nvim/plugins/nerdtree.vim
+source ~/.config/nvim/plugins/airline.vim
+source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/telescope.vim
+source ~/.config/nvim/plugins/tokyonight.vim

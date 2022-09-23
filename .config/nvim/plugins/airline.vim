@@ -1,6 +1,3 @@
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif

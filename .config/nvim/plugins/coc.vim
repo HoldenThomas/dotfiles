@@ -1,5 +1,3 @@
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 let g:coc_global_extensions = ['coc-pairs', 'coc-snippets', 'coc-prettier', 'coc-html', 'coc-css', 'coc-ccls', 'coc-tsserver', 'coc-json']
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
