@@ -1,6 +1,7 @@
 # Enable colors and change prompt
 autoload -U colors && colors	# Load colors
-PS1="%{$fg[magenta]%}%~%{$reset_color%}>%b "
+#PS1="%{$fg[magenta]%}%~%{$reset_color%}>%b "
+PS1="> "
 
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -9,66 +10,10 @@ setopt interactive_comments
 # History in cache directory
 HISTSIZE=1000000
 SAVEHIST=1000000
-HISTFILE=~/.cache/zsh/.histfile
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 
-# Use $XINITRC variable if file exists.
-[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
-
-# Use neovim for vim if present
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
-
-# sudo not required for some system commands
-for command in mount umount pacman su ; do
-	alias $command="sudo $command"
-done; unset command
-
-# Settings you always want
-alias \
-	cp="cp -iv" \
-	mv="mv -iv" \
-	rm="rm -vI" \
-	mkdir="mkdir -pv" \
-	ls="ls -hN --color=auto --group-directories-first" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ip="ip -color=auto"
-
-# Shortening some common commands
-alias \
-	ll="ls -al" \
-	C="cd" \
-	p="pacman" \
-	g="git" \
-	v="vim" \
-	sdn="shutdown now" \
-	pm="pulsemixer" \
-	bt="bluetoothctl" \
-	nu="nmtui" \
-  nb="newsboat"
-
-# Some other nice commands
-alias \
-	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
-	yt="youtube-dl -o '%(title)s.%(ext)s'" \
-	yt-fmp4="yt -f mp4" \
-	yt-rmp4="yt --recode-video mp4" \
-	yt-mmp4="yt --merge-output-format mp4" \
-	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' \
-	gtd="c /run/media/$(whoami)" \
-	gts="c /run/media/$(whoami)/HDD8T/Sync" \
-  weather="curl -sf wttr.in" \
-  cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M" \
-  lf="lfub.sh"
-
-# A nice way to cd around the terminal
-c() {
-      if [ -n "$1" ]; then
-        cd "$1" || return 1
-      else
-        cd ..
-      fi
-      ls -a
-}
+# Load aliases and shortcuts if existent.
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 # Basic auto/tab complete
 autoload -U compinit
@@ -119,6 +64,7 @@ bindkey -s '^o' 'lfcd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
+# Enable autocomplete for SalesForce sfdx-cli
 eval $(sfdx autocomplete:script zsh)
 
 # Change ls colors for making ntfs mounted partitions readable
