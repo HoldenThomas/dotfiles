@@ -1,7 +1,6 @@
 # Enable colors and change prompt
 autoload -U colors && colors	# Load colors
-#PS1="%{$fg[magenta]%}%~%{$reset_color%}>%b "
-PS1="> "
+PS1="%{$fg[magenta]%}%~%{$reset_color%}>%b "
 
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -64,12 +63,15 @@ bindkey -s '^o' 'lfcd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
-# Enable autocomplete for SalesForce sfdx-cli
-eval $(sfdx autocomplete:script zsh)
-
 # Change ls colors for making ntfs mounted partitions readable
 LS_COLORS='ow=1;35:'
 export LS_COLORS
+
+# Enable autocomplete for SalesForce sfdx-cli
+eval $(sfdx autocomplete:script zsh)
+
+# Starship Promp
+eval "$(starship init zsh)"
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
