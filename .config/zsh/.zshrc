@@ -70,7 +70,7 @@ export LS_COLORS
 # Enable autocomplete for SalesForce sfdx-cli
 eval $(sfdx autocomplete:script zsh)
 
-# Starship Promp
+# Starship Prompt
 eval "$(starship init zsh)"
 
 # Load syntax highlighting; should be last.
