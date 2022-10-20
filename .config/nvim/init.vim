@@ -6,7 +6,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 " PlugInstall,PlugUpdate,PlugClean
-call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+call plug#begin('~/.config/nvim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'lilydjwg/colorizer'
 Plug 'vim-airline/vim-airline'
@@ -74,7 +74,6 @@ autocmd BufWritePost ~/.config/nvim/init.vim so %
 autocmd BufWritePost ~/.config/x11/xresources !xrdb %
 " Recompile dwmblocks on config edit.
 autocmd BufWritePost ~/.local/src/dwmblocks/blocks.def.h !cd ~/.local/src/dwmblocks/; sudo make clean install && { killall -q dwmblocks;setsid -f dwmblocks }
-
 
 """"""""""""""""""""""""""""""""
 " Plugin Configs
