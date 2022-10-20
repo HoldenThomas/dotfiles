@@ -33,7 +33,7 @@ alias \
 	C="cd" \
 	p="pacman" \
 	g="git" \
-	v="vim" \
+	v="nvim" \
 	bt="bluetoothctl" \
   nb="newsboat" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
