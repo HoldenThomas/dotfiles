@@ -24,7 +24,7 @@ fi
 picom -f &
 dunst &
 remaps.sh &
-redshift -l 42.51:-73.61 &
+! pidof -s redshift >/dev/null 2>&1 && redshift -l 42.51:-73.61 &
 sxhkd &
 setbg.sh
 nextcloud --background &
