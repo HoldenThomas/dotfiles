@@ -1,10 +1,10 @@
 #!/bin/sh
 
-input="$(printf "Shutdown\\nReboot\\nLock\\nLogout" | dmenu -p "Select option: ")" || exit 1
+input="$(printf "shutdown\\nreboot\\nlock\\nlogout" | dmenu -p "Select option: ")" || exit 1
 
 case $input in
-	"Shutdown") shutdown now ;;
-	"Reboot") reboot ;;
-	"Lock") slock ;;
-  "Logout") pkill -KILL -u $(whoami) ;;
+	"shutdown") shutdown now ;;
+	"reboot") reboot ;;
+	"lock") slock ;;
+  "logout") pkill -KILL -u $(whoami) ;;
 esac
