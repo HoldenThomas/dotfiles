@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Media Player
-Exec=st -e mpv %u
+Exec=alacritty -e mpv %u
