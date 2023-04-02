@@ -4,7 +4,7 @@ set $bInactive 	#222222
 set $bInactiveT #222222f0
 set $bUrgent 		#111111
 set $bText 		  #bbbbbb
-set $font       Monospace Regular 10
+set $font       Monospace Regular 12
 set $mod        Mod4
 
 #############################
@@ -27,6 +27,8 @@ bar {
     status_command i3blocks
     position top
     tray_output primary
+    i3bar_command i3bar --transparency
+
     colors {
         background $bInactiveT
         statusline $bText

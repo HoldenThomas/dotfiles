@@ -16,7 +16,6 @@ if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
   displayset.sh Monitors
   setrgb.sh &
   imwheel -b 45 &
-  ckb-next -b &
 fi
 
 [ "$1" = "dwm" ] && dwmblocks &
