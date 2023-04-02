@@ -1,29 +1,30 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
 
-vim.opt.backspace = '2'
-vim.opt.showcmd = true
-vim.opt.laststatus = 2
-vim.opt.autowrite = true
-vim.opt.cursorline = true
-vim.opt.autoread = true
+-- Moving selected linses
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- use spaces for tabs and whatnot
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.shiftround = true
-vim.opt.expandtab = true
+-- Curser stays in same spot
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
-vim.opt.relativenumber = true
-vim.opt.colorcolumn = "80"
-vim.cmd [[ set clipboard+=unnamedplus ]]
-vim.cmd [[ set mouse=a ]]
-vim.cmd [[ set ignorecase ]]
-vim.cmd [[ set smartcase ]]
-vim.cmd [[ set splitbelow splitright ]]
+-- Pasting over word keeps passed word in buffer
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- Use system clipboard for copy pasting
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+
+-- Replace word currently on
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Make file ex
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Indenting visual block doesn't go out of visual block
-vim.cmd [[ vmap < <gv ]]
-vim.cmd [[ vmap > >gv ]]
-
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")

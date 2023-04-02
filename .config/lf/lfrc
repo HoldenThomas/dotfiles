@@ -3,8 +3,10 @@ set period 1
 set drawbox
 set hidden
 set ifs "\n"
+set scrolloff 10
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
+set autoquit on
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
