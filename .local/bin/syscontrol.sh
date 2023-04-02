@@ -5,6 +5,6 @@ input="$(printf "shutdown\\nreboot\\nlock\\nlogout" | dmenu -p "Select option: "
 case $input in
 	"shutdown") shutdown now ;;
 	"reboot") reboot ;;
-	"lock") slock ;;
+	"lock") i3lock ;;
   "logout") pkill -KILL -u $(whoami) ;;
 esac
