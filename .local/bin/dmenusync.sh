@@ -4,17 +4,9 @@ input="$(printf "website\\nnas\\ntablet\\nphone\\nexpansion" | dmenu -i -p "Sele
 
 case $input in
 	"website")
-		syncWeb="$(printf "push websites\\npull websites" | dmenu -i -p "Choose Website sync option: ")" || exit 1
-		case $syncWeb in
-			"push websites") 
-                $TERMINAL -e zsh -c 'echo "Pushing website in 2 seconds"; sleep 2; \
-                    rsync -vrP --exclude html --delete-after ~/Documents/websites/ root@holdenthomas.xyz:/var/www/; \
-                    read' ;;
-			"pull websites") 
-                $TERMINAL -e zsh -c 'echo "Pulling website in 2 seconds"; sleep 2; \
-                    rsync -vrP --exclude html --delete-after root@holdenthomas.xyz:/var/www/ ~/Documents/websites/; \
-                    read' ;;
-		esac ;;
+        $TERMINAL -e zsh -c 'echo "Pushing website in 2 seconds"; sleep 2; \
+            rsync -vrP --exclude html --delete-after ~/Documents/websites/ root@holdenthomas.xyz:/var/www/; \
+            read' ;;
 
 	"nas") 
         $TERMINAL -e zsh -c 'echo "Syncing NasBox in 2 seconds"; sleep 2; \
