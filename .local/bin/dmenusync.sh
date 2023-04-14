@@ -5,7 +5,8 @@ input="$(printf "website\\nnas\\ntablet\\nphone\\nexpansion" | dmenu -i -p "Sele
 case $input in
 	"website")
         $TERMINAL -e zsh -c 'echo "Pushing website in 2 seconds"; sleep 2; \
-            rsync -vrP --exclude html --delete-after ~/Documents/websites/ root@holdenthomas.xyz:/var/www/; \
+            rsync -vrP --exclude html --delete-after ~/Documents/holdenthomasxyz/public/ root@holdenthomas.xyz:/var/www/holdenthomasxyz/; \
+            rsync -vrP --exclude html --delete-after ~/Documents/ticklemanxyz/public/ root@holdenthomas.xyz:/var/www/ticklemanxyz; \
             read' ;;
 
 	"nas") 
