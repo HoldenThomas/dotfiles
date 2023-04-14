@@ -32,6 +32,7 @@ map md push :mkdir<space>
 map mf push :touch<space>
 map ma $7z a "$f"
 map mx $7z x "$f"
+map mr $bash filerename.sh
 
 map gb bottom
 map gd cd /run/media/holden
