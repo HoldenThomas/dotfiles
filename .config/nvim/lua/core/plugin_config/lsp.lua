@@ -10,6 +10,7 @@ lsp.ensure_installed({
   'quick_lint_js',
   'bashls',
   'marksman',
+  'jdtls',
 })
 
 -- Fix Undefined global 'vim'
