@@ -27,6 +27,7 @@ alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ip="ip -color=auto" \
+	youtube-dl="youtube-dl -o '%(title)s.%(ext)s'" \
     lf="lfub.sh"
 # Shortening some common commands
 alias \
@@ -41,10 +42,8 @@ alias \
 # Some other commands
 alias \
 	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
-	yt="youtube-dl -o '%(title)s.%(ext)s'" \
-	yt-fmp4="yt -f mp4" \
+	yt-mp4='youtube-dl --format "bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best" --merge-output-format mp4' \
 	yt-rmp4="yt --recode-video mp4" \
-	yt-mmp4="yt --merge-output-format mp4" \
     cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M && mkdir ~/.cache/zsh"
 
 # Basic auto/tab complete
