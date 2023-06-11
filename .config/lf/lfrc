@@ -35,9 +35,8 @@ map mx $7z x "$f"
 map mr $bash filerename.sh
 
 map gb bottom
-map gd cd /run/media/holden
-map gs cd /run/media/holden/hdd-08t/sync
-map gv cd /run/media/holden/hdd-08t/sync/videos
+map gd cd /mnt
+map gs cd /mnt/storage
 
 map ov $setsid -f mpv -quiet "$f" >/dev/null 2>&1
 map oa $setsid -f $TERMINAL -e mpv "$f" >/dev/null 2>&1

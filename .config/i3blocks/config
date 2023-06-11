@@ -1,10 +1,6 @@
 separator=true
 separator_block_width=15
 
-[forecast]
-command=sb-forecast.sh
-interval=10000
-
 [memory]
 command=sb-memory.sh
 interval=5

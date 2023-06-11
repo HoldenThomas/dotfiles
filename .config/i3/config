@@ -1,9 +1,9 @@
 # Variables
-set $bFocused	  #444444
-set $bInactive 	#222222
+set $bFocused	#444444
+set $bInactive  #222222
 set $bInactiveT #222222f0
-set $bUrgent 		#111111
-set $bText 		  #bbbbbb
+set $bUrgent 	#111111
+set $bText 	    #bbbbbb
 set $font       Monospace Regular 12
 set $mod        Mod4
 
@@ -15,11 +15,11 @@ gaps outer 5
 default_border pixel 3
 default_floating_border pixel 3
 font pango:$font
-# class                 border  	  backgr. 	  text    	indicator 			child_border
+# class                 border  	backgr. 	text    	indicator 			child_border
 client.focused          $bFocused 	$bFocused 	$bText 		$bFocused   		$bFocused
 client.focused_inactive $bInactive 	$bInactive 	$bText 		$bInactive   		$bInactive
 client.unfocused        $bInactive 	$bInactive 	$bText 		$bInactive   		$bInactive
-client.urgent           $bUrgent 	  $bUrgent	  $bText 		$bUrgent  			$bUrgent
+client.urgent           $bUrgent 	$bUrgent	$bText 		$bUrgent  			$bUrgent
 client.placeholder      $bInactive 	$bInactive 	$bText 		$bInactive   		$bInactive
 client.background       $bInactive
 # i3bar

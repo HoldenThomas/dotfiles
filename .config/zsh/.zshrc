@@ -1,9 +1,10 @@
-# Enable colors and change prompt
-autoload -U colors && colors	# Load colors
+autoload -U colors && colors
+setopt autocd extendedglob nomatch menucomplete interactive_comments
+zle_highlight=('paste:none');
+# Change ls colors for making ntfs mounted partitions readable
+#LS_COLORS='ow=1;35:'
+#export LS_COLORS
 
-setopt interactive_comments
-
-# History in cache directory
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE=~/.cache/zsh/history
@@ -26,7 +27,7 @@ alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ip="ip -color=auto" \
-  lf="lfub.sh"
+    lf="lfub.sh"
 # Shortening some common commands
 alias \
 	ll="ls -al" \
@@ -35,16 +36,16 @@ alias \
 	g="git" \
 	v="nvim" \
 	bt="bluetoothctl" \
-  nb="newsboat" \
+    nb="newsboat" \
 	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-# Some other nice commands
+# Some other commands
 alias \
 	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
 	yt="youtube-dl -o '%(title)s.%(ext)s'" \
 	yt-fmp4="yt -f mp4" \
 	yt-rmp4="yt --recode-video mp4" \
 	yt-mmp4="yt --merge-output-format mp4" \
-  cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M"
+    cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M && mkdir ~/.cache/zsh"
 
 # Basic auto/tab complete
 autoload -U compinit
@@ -105,9 +106,6 @@ bindkey -s '^o' 'lfcd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
-# Change ls colors for making ntfs mounted partitions readable
-LS_COLORS='ow=1;35:'
-export LS_COLORS
 
 # Enable autocomplete for SalesForce sfdx-cli
 #eval $(sfdx autocomplete:script zsh)
@@ -116,4 +114,5 @@ export LS_COLORS
 eval "$(starship init zsh)"
 
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
