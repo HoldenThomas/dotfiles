@@ -23,7 +23,5 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass.sh"
 
-ssh-add ~/.ssh/id_rsa_desktop
-
 # start startup script
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && loginscript.sh

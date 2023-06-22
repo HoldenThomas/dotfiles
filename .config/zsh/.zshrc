@@ -1,5 +1,5 @@
 autoload -U colors && colors
-setopt autocd extendedglob nomatch menucomplete interactive_comments
+setopt autocd interactive_comments
 zle_highlight=('paste:none');
 # Change ls colors for making ntfs mounted partitions readable
 #LS_COLORS='ow=1;35:'
