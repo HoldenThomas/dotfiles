@@ -27,3 +27,4 @@ remaps.sh &
 sxhkd &
 setbg.sh
 nextcloud --background &
+syncthing --no-browser &
