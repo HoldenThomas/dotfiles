@@ -1,5 +1,5 @@
 # Variables
-set $bFocused	#444444
+set $bFocuse	#FF5733
 set $bInactive  #222222
 set $bInactiveT #222222f0
 set $bUrgent 	#111111
@@ -27,7 +27,6 @@ bar {
     status_command i3blocks
     position top
     tray_output primary
-    i3bar_command i3bar --transparency
 
     colors {
         background $bInactiveT

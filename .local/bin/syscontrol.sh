@@ -6,5 +6,5 @@ case $input in
 	"shutdown") shutdown now ;;
 	"reboot") reboot ;;
 	"lock") i3lock ;;
-  "logout") pkill -KILL -u $(whoami) ;;
+    "logout") pkill -KILL -u $(whoami) ;;
 esac

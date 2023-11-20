@@ -1,25 +1,27 @@
 #!/bin/sh
 
-###########################################
-###### For Saving Application passwords such as nextcloud
-### Edit /etc/pam.d/login
-### auth	    optional	pam_gnome_keyring.so
-### session 	optional 	pam_gnome_keyring.so	auto_start
-### Edit /etc/pam.d/passwd
-### password 	optional 	pam_gnome_keyring.so
-### Open seahorse and add new password keyring called Login with same password as user and make default
-###########################################
+###############################################################
+### gnome-keyring setup
+# Edit /etc/pam.d/login
+# auth	    optional	pam_gnome_keyring.so
+# session 	optional 	pam_gnome_keyring.so	auto_start
+# Edit /etc/pam.d/passwd
+# password 	optional 	pam_gnome_keyring.so
+###############################################################
 eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 
-if [ ! -z $(pacman -Qqe | grep liquidctl) ] ; then
+# Desktop startup applications
+if [ ! -z $(uname -n | grep dt) ] ; then
   displayset.sh Monitors
   setrgb.sh &
   imwheel -b 45 &
 fi
 
+# If running dwm start dwmblocks
 [ "$1" = "dwm" ] && dwmblocks &
 
+# Applications
 picom -f &
 dunst &
 remaps.sh &
