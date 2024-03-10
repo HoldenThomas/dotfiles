@@ -4,6 +4,6 @@
 
 
 case $input in
-	"Monitors") xrandr --output DisplayPort-1 --primary --mode 2560x1440 --rate 165.00 --set TearFree on --output DisplayPort-2 --mode 1920x1080 --rate 60.00 --left-of DisplayPort-1 --set TearFree on --output HDMI-A-3 --off;;
-	"TV") xrandr --output HDMI-A-3 --primary --mode 3840x2160 --rate 30.00 --scale .35 --set TearFree on --output DisplayPort-1 --off --output DisplayPort-2 --off;;
+	"Monitors") xrandr --output DP-0 --primary --mode 5120x1440 --rate 240.00 --output DP-2 --mode 2560x1440 --rate 165.00 --left-of DP-0 --output HDMI-0 --off;;
+	"TV") xrandr --output HDMI-0 --primary --mode 3840x2160 --rate 30.00 --scale .35 --output DP-0 --off --output DP-2 --off;;
 esac

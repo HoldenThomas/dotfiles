@@ -23,5 +23,6 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass.sh"
 
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 # start startup script
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && loginscript.sh

@@ -15,7 +15,7 @@ export SSH_AUTH_SOCK
 if [ ! -z $(uname -n | grep dt) ] ; then
   displayset.sh Monitors
   setrgb.sh &
-  imwheel -b 45 &
+  #imwheel -b 45 &
 fi
 
 # If running dwm start dwmblocks
@@ -30,3 +30,5 @@ sxhkd &
 setbg.sh
 nextcloud --background &
 syncthing --no-browser &
+discord --start-minimized &
+steam-runtime -silent &

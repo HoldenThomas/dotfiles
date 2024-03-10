@@ -109,6 +109,12 @@ bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 # Enable autocomplete for SalesForce sfdx-cli
 #eval $(sfdx autocomplete:script zsh)
 
+# Python virtual enviornment
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # Starship Prompt
 eval "$(starship init zsh)"
 
