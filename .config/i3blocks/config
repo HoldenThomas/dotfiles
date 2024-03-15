@@ -2,30 +2,30 @@ separator=true
 separator_block_width=15
 
 [memory]
-command=sb-memory.sh
+command=sb-memory
 interval=5
 
 [cpu]
-command=sb-cpu.sh
+command=sb-cpu
 interval=5
 
 [nettraf]
-command=sb-nettraf.sh
+command=sb-nettraf
 interval=1
 
 [wifi]
-command=sb-internet.sh
+command=sb-internet
 interval=5
 
 [battery]
-command=sb-battery.sh
+command=sb-battery
 interval=60
 
 [volume]
-command=sb-volume.sh
+command=sb-volume
 interval=once
 signal=10
 
 [clock]
-command=sb-clock.sh
+command=sb-clock
 interval=60

@@ -27,10 +27,10 @@
 # the list to sxiv. This is the fastest approach since we won't have to call
 # listfiles twice.
 if [ -d "$1" ]; then
-  sxiv "$1"
+  nsxiv "$1"
 else
   TMPDIR="${TMPDIR:-/tmp}"
-  tmp="$TMPDIR/sxiv_rifle_$$"
+  tmp="$TMPDIR/nsxiv_rifle_$$"
 
   listfiles () {
     find -L "///${1%/*}" \( ! -path "///${1%/*}" -prune \) -type f -print |
@@ -50,9 +50,9 @@ open_img () {
   trap 'rm -f $tmp' EXIT
   count="$(listfiles "$1" | grep -nF "$1")"
   if [ -n "$count" ]; then
-    sxiv -i -n "${count%%:*}" -- < "$tmp"
+    nsxiv -i -n "${count%%:*}" -- < "$tmp"
   else
-    sxiv -- "$@" # fallback
+    nsxiv -- "$@" # fallback
   fi
 }
 

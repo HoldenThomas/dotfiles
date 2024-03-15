@@ -10,6 +10,12 @@ set autoquit true
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
+
+        text/*) setsid -f $TERMINAL -e nvim "$f" >/dev/null 2>&1 ;;
+        image/*) setsid -f nsxivs "$f" >/dev/null 2>&1 ;;
+        video/*) setsid -f mpv -quiet "$f" >/dev/null 2>&1 ;;
+        audio/*) setsid -f mpv --audio-display=no "$f" >/dev/null 2>&1 ;;
+        application/pdf) setsid -f zathura "$f" >/dev/null 2>&1 ;;
         *) setsid -f xdg-open "$f" >/dev/null 2>&1 ;;
     esac
 }}
@@ -31,7 +37,7 @@ map md push :mkdir<space>
 map mf push :touch<space>
 map ma $7z a "$f"
 map mx $7z x "$f"
-map mr $bash filerename.sh
+map mr $bash filerename
 
 map gb bottom
 map gM cd /mnt
@@ -41,8 +47,8 @@ map gp cd /mnt/stash
 map gm cd /mnt/media
 
 map ov $setsid -f mpv -quiet "$f" >/dev/null 2>&1
-map oa $setsid -f $TERMINAL -e mpv "$f" >/dev/null 2>&1
-map op $setsid -f sxivs.sh "$f" >/dev/null 2>&1
+map oa $setsid -f mpv --audio-display=no "$f" >/dev/null 2>&1
+map op $setsid -f nsxivs "$f" >/dev/null 2>&1
 map ob $setsid -f $BROWSER "$f" >/dev/null 2>&1
 
 map B $vidir

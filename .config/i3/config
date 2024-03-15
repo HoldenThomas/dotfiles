@@ -44,7 +44,7 @@ bar {
 #############################
 ## AutoStart
 #############################
-exec_always --no-startup-id autostart.sh
+exec_always --no-startup-id autostart
 
 #############################
 ## Workspaces
