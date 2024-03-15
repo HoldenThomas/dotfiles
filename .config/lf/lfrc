@@ -14,7 +14,7 @@ cmd open ${{
         text/*) setsid -f $TERMINAL -e nvim "$f" >/dev/null 2>&1 ;;
         image/*) setsid -f nsxivs "$f" >/dev/null 2>&1 ;;
         video/*) setsid -f mpv -quiet "$f" >/dev/null 2>&1 ;;
-        audio/*) setsid -f mpv --audio-display=no "$f" >/dev/null 2>&1 ;;
+        audio/*) setsid -f $TERMINAL -e mpv --audio-display=no "$f" >/dev/null 2>&1;;
         application/pdf) setsid -f zathura "$f" >/dev/null 2>&1 ;;
         *) setsid -f xdg-open "$f" >/dev/null 2>&1 ;;
     esac
@@ -47,7 +47,7 @@ map gp cd /mnt/stash
 map gm cd /mnt/media
 
 map ov $setsid -f mpv -quiet "$f" >/dev/null 2>&1
-map oa $setsid -f mpv --audio-display=no "$f" >/dev/null 2>&1
+map oa $setsid -f $TERMINAL -e mpv --audio-display=no "$f" >/dev/null 2>&1
 map op $setsid -f nsxivs "$f" >/dev/null 2>&1
 map ob $setsid -f $BROWSER "$f" >/dev/null 2>&1
 
