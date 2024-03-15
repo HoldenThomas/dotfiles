@@ -25,7 +25,6 @@ cmd delete ${{
 
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 cmd touch $touch "$(echo $* | tr ' ' '\ ')"
-cmd whoami $whoami
 
 map m
 map md push :mkdir<space>
@@ -35,8 +34,11 @@ map mx $7z x "$f"
 map mr $bash filerename.sh
 
 map gb bottom
-map gd cd /mnt
+map gM cd /mnt
 map gs cd /mnt/storage
+map gd cd /mnt/data
+map gp cd /mnt/stash
+map gm cd /mnt/media
 
 map ov $setsid -f mpv -quiet "$f" >/dev/null 2>&1
 map oa $setsid -f $TERMINAL -e mpv "$f" >/dev/null 2>&1

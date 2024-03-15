@@ -1,19 +1,19 @@
 autoload -U colors && colors
 setopt autocd interactive_comments
 zle_highlight=('paste:none');
-# Change ls colors for making ntfs mounted partitions readable
-#LS_COLORS='ow=1;35:'
-#export LS_COLORS
 
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE=~/.cache/zsh/history
 
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount umount pacman su ; do
+for command in mount umount pacman su systemctl ; do
 	alias $command="sudo $command"
 done; unset command
 
@@ -28,7 +28,7 @@ alias \
 	diff="diff --color=auto" \
 	ip="ip -color=auto" \
 	youtube-dl="youtube-dl -o '%(title)s.%(ext)s'" \
-    lf="lfub.sh"
+    lf="lfub"
 # Shortening some common commands
 alias \
 	ll="ls -al" \
@@ -80,6 +80,17 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
 # A nice way to cd around the terminal
 c() {
       if [ -n "$1" ]; then
@@ -90,30 +101,17 @@ c() {
       ls -a
 }
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp" >/dev/null
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
+bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^a' '^ubc -lq\n'
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
+bindkey '^[[P' delete-char
 
-bindkey -s '^o' 'lfcd\n'
-bindkey -s '^a' 'bc -lq\n'
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
-
-
-# Enable autocomplete for SalesForce sfdx-cli
-#eval $(sfdx autocomplete:script zsh)
-
-# Python virtual enviornment
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M vicmd '^e' edit-command-line
+bindkey -M visual '^[[P' vi-delete
 
 # Starship Prompt
 eval "$(starship init zsh)"

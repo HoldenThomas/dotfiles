@@ -13,8 +13,8 @@ export SSH_AUTH_SOCK
 
 # Desktop startup applications
 if [ ! -z $(uname -n | grep dt) ] ; then
-  displayset.sh Monitors
-  setrgb.sh &
+  displayset Monitors
+  setrgb &
   #imwheel -b 45 &
 fi
 
@@ -24,10 +24,10 @@ fi
 # Applications
 picom -f &
 dunst &
-remaps.sh &
+remaps &
 ! pidof -s redshift >/dev/null 2>&1 && redshift -l 42.51:-73.61 &
 sxhkd &
-setbg.sh
+setbg
 nextcloud --background &
 syncthing --no-browser &
 discord --start-minimized &
