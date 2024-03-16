@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# sudo not required for some system commands
+for command in mount umount pacman su systemctl ; do
+	alias $command="sudo $command"
+done; unset command
+
+# Settings you always want
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	mkdir="mkdir -pv" \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ip="ip -color=auto" \
+	youtube-dl="youtube-dl -o '%(title)s.%(ext)s'" \
+    lf="lfub"
+# Shortening some common commands
+alias \
+	ll="ls -al" \
+	C="cd" \
+	p="pacman" \
+	g="git" \
+	v="nvim" \
+	bt="bluetoothctl" \
+    nb="newsboat" \
+	config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+# Some other commands
+alias \
+	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
+	yt-mp4='youtube-dl --format "bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best" --merge-output-format mp4' \
+	yt-rmp4="yt --recode-video mp4" \
+    cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M && mkdir ~/.cache/zsh"
+
