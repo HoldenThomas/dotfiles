@@ -1,11 +1,14 @@
 #!/bin/sh
 
-input="$(printf "website" | dmenu -i -p "Select option: ")" || exit 1
+input="$(printf "holdenthomasxyz\nticklemanxyz" | dmenu -i -p "Select option: ")" || exit 1
 
 case $input in
-	"website")
+	"holdenthomasxyz")
         $TERMINAL -e zsh -c 'echo "Pushing website in 2 seconds"; sleep 2; \
-            rsync -vrP --exclude html --delete-after ~/Documents/holdenthomasxyz/public/ root@holdenthomas.xyz:/var/www/holdenthomasxyz/; \
-            rsync -vrP --exclude html --delete-after ~/Documents/ticklemanxyz/public/ root@holdenthomas.xyz:/var/www/ticklemanxyz; \
+            rsync -vrP --exclude html --delete-after /mnt/data/storage/code/git/holdenthomasxyz/public/ root@holdenthomas.xyz:/var/www/holdenthomasxyz/; \
+            read' ;;
+	"ticklemanxyz")
+        $TERMINAL -e zsh -c 'echo "Pushing website in 2 seconds"; sleep 2; \
+            rsync -vrP --exclude html --delete-after /mnt/data/storage/code/git/ticklemanxyz/public/ root@holdenthomas.xyz:/var/www/ticklemanxyz; \
             read' ;;
 esac

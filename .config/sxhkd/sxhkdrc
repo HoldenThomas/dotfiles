@@ -4,7 +4,7 @@ XF86MonBrightness{Up,Down}
 	brightnessctl s {+10%,10%-}
 
 super + Escape
-  syscontrol.sh
+  syscontrol
 super + d
   dmenu_run
 super + Return
@@ -22,9 +22,9 @@ super + a
 super + shift + a
 	$TERMINAL -e nmtui
 super + z
-  displayset.sh
+  displayset
 super + s
-  dmenusync.sh
+  dmenusync
 
 super + F1
-  dmenui3.sh
+  dmenui3
