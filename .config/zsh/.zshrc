@@ -1,6 +1,7 @@
 autoload -U colors && colors
 setopt autocd interactive_comments
 zle_highlight=('paste:none');
+stty stop undef		# Disable ctrl-s to freeze terminal.
 
 HISTSIZE=1000000
 SAVEHIST=1000000

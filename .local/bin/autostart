@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Edit /etc/pam.d/login
+# auth      optional pam_gnome_keyring.so
+# session   optional pam_gnome_keyring.so auto_start
+dbus-update-activation-environment --all
+gnome-keyring-daemon --start --compontes=secrets
+
 # Desktop startup applications
 if [ ! -z $(uname -n | grep dt) ] ; then
   displayset Monitors
@@ -10,7 +16,7 @@ fi
 [ "$1" = "dwm" ] && dwmblocks &
 
 # Applications
-picom --experimental-backends -b
+picom -b
 dunst &
 keyrepeat &
 ! pidof -s redshift >/dev/null 2>&1 && redshift -l 42.51:-73.61 &
