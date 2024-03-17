@@ -2,6 +2,9 @@ autoload -U colors && colors
 setopt autocd interactive_comments
 zle_highlight=('paste:none');
 stty stop undef		# Disable ctrl-s to freeze terminal.
+# Change ls colors for making ntfs mounted partitions readable
+LS_COLORS='ow=1;35:'
+export LS_COLORS
 
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -42,27 +45,6 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-
-# A nice way to cd around the terminal
-c() {
-      if [ -n "$1" ]; then
-        cd "$1" || return 1
-      else
-        cd ..
-      fi
-      ls -a
-}
 
 bindkey -s '^o' '^ulfcd\n'
 bindkey -s '^a' '^ubc -lq\n'

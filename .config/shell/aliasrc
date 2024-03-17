@@ -11,6 +11,35 @@ for command in mount umount pacman su systemctl ; do
 	alias $command="sudo $command"
 done; unset command
 
+se() {
+	choice="$(find ~/.local/bin -mindepth 1 -printf '%P\n' | fzf)"
+	[ -f "$HOME/.local/bin/$choice" ] && $EDITOR "$HOME/.local/bin/$choice";
+}
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp -uq)"
+    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+jp () { cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ~/.config/shell/bm-dirs | fzf) }
+
+# A nice way to cd around the terminal
+c() {
+      if [ -n "$1" ]; then
+        cd "$1" || return 1
+      else
+        cd ..
+      fi
+      ls -a
+}
+
+
 # Settings you always want
 alias \
 	cp="cp -iv" \
@@ -39,4 +68,5 @@ alias \
 	yt-mp4='youtube-dl --format "bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best" --merge-output-format mp4' \
 	yt-rmp4="yt --recode-video mp4" \
     cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M && mkdir ~/.cache/zsh"
+
 

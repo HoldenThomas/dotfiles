@@ -1,0 +1,13 @@
+h   /home/holden
+cf  /home/holden/.config
+sc  /home/holden/.local/bin
+dt  /home/holden/.local/share
+src /home/holden/.local/src
+D   /home/holden/Downloads
+d   /home/holden/Documents
+mn  /mnt
+tsv /mnt/truenas/data/storage/videos
+tsp /mnt/truenas/data/storage/pictures
+tsm /mnt/truenas/data/storage/music
+tst /mnt/truenas/stash
+tme /mnt/truenas/media
