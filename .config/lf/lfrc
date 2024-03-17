@@ -1,3 +1,4 @@
+set shellopts '-eu'
 set icons
 set period 1
 set drawbox
