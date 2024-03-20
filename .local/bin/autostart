@@ -8,7 +8,7 @@ gnome-keyring-daemon --start --compontes=secrets
 
 # Desktop startup applications
 if [ ! -z $(uname -n | grep dt) ] ; then
-  displayset Monitors
+#  displayset Monitors
   setrgb &
 fi
 

@@ -18,6 +18,6 @@ session=${1:-i3}
 case $session in
   i3|" ")   exec i3;;
   dwm)      while true; do dwm; done; exec dwm;;
-  kde)      export DESKTOP_SESSION=plasma && exec startplsma-x11;;
+  kde)      export DESKTOP_SESSION=plasma; exec startplasma-x11;;
     *)      exec $1;;
 esac

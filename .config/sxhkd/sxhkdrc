@@ -1,5 +1,7 @@
-XF86Audio{Mute,LowerVolume,RaiseVolume}
-	pamixer -{t,d,i} 2; kill -44 $(pidof dwmblocks); kill -44 $(pidof i3blocks)
+XF86Audio{LowerVolume,RaiseVolume}
+	pactl set-sink-volume @DEFAULT_SINK@ {-,+}5% && pactl set-sink-mute @DEFAULT_SINK@ 0; kill -44 $(pidof dwmblocks); kill -44 $(pidof i3blocks)
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -44 $(pidof dwmblocks); kill -44 $(pidof i3blocks)
 XF86MonBrightness{Up,Down}
 	brightnessctl s {+10%,10%-}
 

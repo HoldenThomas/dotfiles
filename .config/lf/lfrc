@@ -56,4 +56,4 @@ map ob $setsid -f $BROWSER "$f" >/dev/null 2>&1
 map B $vidir
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map D delete
-map b $setbg.sh "$f"
+map b $setbg "$f"
