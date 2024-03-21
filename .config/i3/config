@@ -47,6 +47,13 @@ bar {
 exec_always --no-startup-id autostart
 
 #############################
+## Bindings
+#############################
+# Scratchpad
+bindsym $mod+v exec i3scratchpad 'scratch-alacritty' 'alacritty'
+bindsym $mod+c exec i3scratchpad 'scratch-keepassxc' 'keepassxc'
+
+#############################
 ## Workspaces
 #############################
 set $ws1 "1"
