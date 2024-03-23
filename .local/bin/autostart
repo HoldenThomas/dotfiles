@@ -16,12 +16,13 @@ fi
 [ "$1" = "dwm" ] && dwmblocks &
 
 # Applications
-picom -b
+picom -b &
 dunst &
 keyrepeat &
 ! pidof -s redshift >/dev/null 2>&1 && redshift -l 42.51:-73.61 &
+xscreensaver &
 sxhkd &
-setbg
+setbg &
 nextcloud --background &
 syncthing --no-browser &
 discord --start-minimized &
