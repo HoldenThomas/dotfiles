@@ -1,3 +1,4 @@
+# Directories
 h   /home/holden
 cf  /home/holden/.config
 sc  /home/holden/.local/bin
@@ -6,8 +7,11 @@ src /home/holden/.local/src
 D   /home/holden/Downloads
 d   /home/holden/Documents
 mn  /mnt
-tsv /mnt/truenas/data/storage/videos
+tds /mnt/truenas/data/storage
 tsp /mnt/truenas/data/storage/pictures
 tsm /mnt/truenas/data/storage/music
+tsv /mnt/truenas/data/storage/videos
+tsd /mnt/truenas/data/storage/documents
 tst /mnt/truenas/stash
 tme /mnt/truenas/media
+sto /mnt/storage
