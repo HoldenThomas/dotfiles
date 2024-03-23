@@ -1,0 +1,3 @@
+#!/bin/sh
+#r2modman --no-sandbox
+r2modman --in-process-gpu
