@@ -135,8 +135,8 @@ map <c-s> set hidden!
 map <enter> shell
 map x $$f
 map X !$f
-map o &mimeopen "$f"
-map O $mimeopen --ask "$f"
+map <c-o> &mimeopen "$f"
+map <c-O> $mimeopen --ask "$f"
 
 map A :rename; cmd-end # at the very end
 map <c-c> push A<c-u> # new rename
