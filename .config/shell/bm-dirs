@@ -8,10 +8,8 @@ D   /home/holden/Downloads
 d   /home/holden/Documents
 mn  /mnt
 tds /mnt/truenas/data/storage
-tsp /mnt/truenas/data/storage/pictures
-tsm /mnt/truenas/data/storage/music
-tsv /mnt/truenas/data/storage/videos
-tsd /mnt/truenas/data/storage/documents
-tst /mnt/truenas/stash
-tme /mnt/truenas/media
-sto /mnt/storage
+tsp /mnt/truenas/data/storage/Pictures
+tsm /mnt/truenas/data/storage/Music
+tsv /mnt/truenas/data/storage/Videos
+tsd /mnt/truenas/data/storage/Documents
+tsc /mnt/truenas/data/storage/Code
