@@ -46,7 +46,7 @@
     "sort-by-number": true
     },
     "custom/updates": {
-        "format": " {}",
+        "format": " {}",
         "interval": 7200,                     // every two hours
         "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
@@ -65,7 +65,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{: %I:%M   %d/%m}",
+        "format": "  {:%I:%M  %d/%m}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "backlight": {
@@ -108,8 +108,8 @@
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " Muted",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
         "on-click": "pamixer --default-source -t",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
