@@ -7,9 +7,9 @@ src /home/holden/.local/src
 D   /home/holden/Downloads
 d   /home/holden/Documents
 mn  /mnt
-tds /mnt/truenas/data/storage
-tsp /mnt/truenas/data/storage/Pictures
-tsm /mnt/truenas/data/storage/Music
-tsv /mnt/truenas/data/storage/Videos
-tsd /mnt/truenas/data/storage/Documents
-tsc /mnt/truenas/data/storage/Code
+tds /mnt/TrueNAS/Data/Storage
+tsp /mnt/TrueNAS/Data/Storage/Pictures
+tsm /mnt/TrueNAS/Data/Storage/Music
+tsv /mnt/TrueNAS/Data/Storage/Videos
+tsd /mnt/TrueNAS/Data/Storage/Documents
+tsc /mnt/TrueNAS/Data/Storage/Code
