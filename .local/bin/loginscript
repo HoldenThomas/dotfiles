@@ -1,11 +1,13 @@
 #!/bin/sh
 
-echo "dwm(Default) | i3 | kde Enter a command"
+echo "dwm(Default) | i3 | kde-x11 | kde-waland | hyprland Enter a command"
 read input
 
 case $input in
   dwm|"")      exec startx $XINITRC dwm;;
   i3)    exec startx $XINITRC i3;;
-  kde)      exec startx $XINITRC kde;;
+  kde-x11)      exec startx $XINITRC kde;;
+  kde-waland)      exec /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland;;
+  hyprland)      exec Hyprland;;
   *)        $input;;
 esac
