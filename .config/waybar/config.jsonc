@@ -14,8 +14,6 @@
     "modules-center": ["hyprland/window"],
     "modules-right": [
         "tray",
-        "custom/updates",
-        "custom/language",
         "battery",
         "backlight",
         "pulseaudio",
@@ -65,7 +63,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": "  {:%I:%M  %d/%m}",
+        "format": "  {:%I:%M  %m/%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "backlight": {
