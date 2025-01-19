@@ -1,14 +1,22 @@
 [Default Applications]
-text/x-shellscript=nvim.desktop;
-text/plain=nvim.desktop;
-text/html=nvim.desktop;
 application/pdf=zathura.desktop;
-image/png=sxivs.desktop;
-image/jpeg=sxivs.desktop;
-image/gif=sxivs.desktop;
+audio/mpeg=mpvaudio.desktop
+image/gif=nsxiv.desktop;
+image/jpeg=nsxivs.desktop;
+image/png=nsxivs.desktop;
+image/svg+xml=nsxiv.desktop
+inode/directory=thunar.desktop
+text/plain=nvim.desktop;
+text/html=nvim.desktop
+text/x-shellscript=nvim.desktop;
 video/mp4=mpv.desktop
 video/quicktime=mpv.desktop
 video/x-matroska=mpv.desktop
-audio/mpeg=mpvaudio.desktop
-inode/directory=pcmanfm.desktop
 x-scheme-handler/mailto=thunderbird.desktop;
+x-scheme-handler/freetube=freetube.desktop
+x-scheme-handler/ror2mm=r2modman.desktop
+x-scheme-handler/http=librewolf.desktop
+x-scheme-handler/https=librewolf.desktop
+
+[Added Associations]
+image/png=nsxiv.desktop;

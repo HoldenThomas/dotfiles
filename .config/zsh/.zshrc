@@ -12,6 +12,9 @@ HISTFILE=~/.cache/zsh/history
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
+# Open man pages with vim
+export MANPAGER='nvim +Man!'
+
 # Basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
