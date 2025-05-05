@@ -2,9 +2,10 @@
 application/pdf=zathura.desktop;
 audio/mpeg=mpvaudio.desktop
 image/gif=nsxiv.desktop;
-image/jpeg=nsxivs.desktop;
+image/jpeg=nsxiv.desktop
 image/png=nsxivs.desktop;
 image/svg+xml=nsxiv.desktop
+image/webp=nsxiv.desktop;
 inode/directory=thunar.desktop
 text/plain=nvim.desktop;
 text/html=nvim.desktop
@@ -17,6 +18,6 @@ x-scheme-handler/freetube=freetube.desktop
 x-scheme-handler/ror2mm=r2modman.desktop
 x-scheme-handler/http=librewolf.desktop
 x-scheme-handler/https=librewolf.desktop
-
-[Added Associations]
-image/png=nsxiv.desktop;
+image/webp=nsxiv.desktop
+application/x-zerosize=nvim.desktop
+application/x-wayland-gnome-saved-search=thunar.desktop

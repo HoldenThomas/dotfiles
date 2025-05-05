@@ -1,11 +1,31 @@
+export ZSH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.oh-my-zsh"
+ZSH_THEME="fox"
+plugins=(
+    git
+    archlinux
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+source $ZSH/oh-my-zsh.sh
+
 autoload -U colors && colors
 setopt autocd interactive_comments
 zle_highlight=('paste:none');
 stty stop undef		# Disable ctrl-s to freeze terminal.
-# Change ls colors for making ntfs mounted partitions readable
-LS_COLORS='ow=1;35:'
+LS_COLORS='ow=1;35:' # Change ls colors for making ntfs mounted partitions readable
 export LS_COLORS
 
+# Display Pokemon-colorscripts
+# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
+#pokemon-colorscripts --no-title -s -r #without fastfetch
+#pokemon-colorscripts --no-title -s -r | fastfetch -c $HOME/.config/fastfetch/config-pokemon.jsonc --logo-type file-raw --logo-height 10 --logo-width 5 --logo -
+#fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
+pokemon-colorscripts --no-title -r | fastfetch --logo -
+
+# Set-up FZF key bindings (CTRL R for fuzzy history finder)
+source <(fzf --zsh)
+
+setopt appendhistory
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE=~/.cache/zsh/history
@@ -62,8 +82,8 @@ bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
 # Starship Prompt
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh

@@ -7,9 +7,9 @@
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount umount pacman su systemctl ; do
-	alias $command="sudo $command"
-done; unset command
+#for command in mount umount pacman su systemctl ; do
+#	alias $command="sudo $command"
+#done; unset command
 
 # Settings you always want
 alias \
@@ -17,15 +17,22 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	mkdir="mkdir -pv" \
-	ls="ls -hN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ip="ip -color=auto" \
 	youtube-dl="yt-dlp -o '%(title)s.%(ext)s'" \
     lf="lfub"
+    #ls="ls -hN --color=auto --group-directories-first" \
+# lsd commands
+alias \
+    ls='lsd' \
+    l='ls -l' \
+    la='ls -a' \
+    lla='ls -la' \
+	ll="ls -al" \
+    lt='ls --tree'
 # Shortening some common commands
 alias \
-	ll="ls -al" \
 	C="cd" \
 	p="pacman" \
 	g="git" \
@@ -36,11 +43,8 @@ alias \
 # Some other commands
 alias \
 	upMirrors="sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist" \
-	yt-mp4='youtube-dl --format "bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best" --merge-output-format mp4' \
-	yt-rmp4="youtube-dl --recode-video mp4" \
-    cleansys="p -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M && mkdir ~/.cache/zsh" \
+    cleansys="sudo pacman -Scc && sudo pacman -Rns $(pacman -Qtdq) && rm -rf ~/.cache/* && sudo journalctl --vacuum-size=50M && mkdir ~/.cache/zsh" \
     make50='make CC=clang CFLAGS="-fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wshadow" LDLIBS="-lcrypt -lcs50 -lm"'
-
 
 se() {
 	choice="$(find ~/.local/bin -mindepth 1 -printf '%P\n' | fzf)"
